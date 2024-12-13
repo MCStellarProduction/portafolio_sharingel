@@ -55,15 +55,19 @@
             padding-bottom: 50px; /* Espacio abajo */
         }
 
+        /* Bloques de imagen con relación 16:9 */
         .image-block {
             position: relative;
-            width: 533px; /* Ancho calculado para mantener la relación 16:9 con altura de 300px */
-            height: 300px; /* Altura fija de 300px */
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100 = 56.25%) */
+            background-color: rgba(0, 0, 0, 0.6);
             border-radius: 15px;
             overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.6);
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Añade sombra a los cuadros */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .image-block img {
@@ -176,22 +180,12 @@
                 gap: 80px; /* Espacio más grande entre los cuadros */
             }
 
-            .image-block {
-                width: 533px; /* Ancho calculado para mantener la relación 16:9 con altura de 300px */
-                height: 300px; /* Altura fija de 300px */
-            }
-
             .image-description h3 {
                 font-size: 1.3em; /* Título más pequeño */
             }
 
             .image-description p {
                 font-size: 0.9em; /* Descripción más pequeña */
-            }
-
-            /* Reducir el tamaño de las imágenes en pantallas grandes */
-            .image-block img {
-                object-fit: contain; /* Asegura que las imágenes se ajusten bien */
             }
         }
     </style>
