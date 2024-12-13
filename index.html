@@ -67,6 +67,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 1;
+            transition: opacity 1s ease-in-out; /* Transición suave */
         }
 
         .image-block:hover {
@@ -192,8 +194,18 @@
             ];
             let currentIndex = images.indexOf(currentImage.src.split('/').pop());
 
-            currentIndex = (currentIndex + 1) % 3; // Solo rota dentro del mismo bloque de imágenes
-            currentImage.src = images[currentIndex + (imageNumber - 1) * 3]; // Asegura que el índice sea correcto para cada bloque
+            // Desvanecer la imagen actual
+            currentImage.style.opacity = 0;
+
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % 3; // Solo rota dentro del mismo bloque de imágenes
+                currentImage.src = images[currentIndex + (imageNumber - 1) * 3]; // Asegura que el índice sea correcto para cada bloque
+                
+                // Esperar la transición y restaurar la opacidad
+                setTimeout(() => {
+                    currentImage.style.opacity = 1;
+                }, 100); // Un pequeño retraso antes de restaurar la opacidad
+            }, 1000); // Tiempo de espera para la transición de desvanecimiento
         }
     </script>
 
