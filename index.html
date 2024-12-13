@@ -26,7 +26,7 @@
             color: #fff;
             margin-bottom: 10px;
             animation: fadeIn 2s ease-in-out;
-            text-align: center;
+            text-align: center; /* Centrar el título */
         }
 
         p {
@@ -182,6 +182,11 @@
 
             .image-description p {
                 font-size: 0.9em; /* Descripción más pequeña */
+            }
+
+            /* Reducir el tamaño de las imágenes en pantallas grandes */
+            .image-block img {
+                object-fit: contain; /* Asegura que las imágenes se ajusten bien */
             }
         }
     </style>
