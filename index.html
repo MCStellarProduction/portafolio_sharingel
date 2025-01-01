@@ -9,7 +9,7 @@
         /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #e0e0e0;
+            background-color: #121212;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -21,52 +21,60 @@
             text-align: center;
             min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
             overflow-x: hidden;
+            box-sizing: border-box;
         }
 
-        /* Contenedor del título y la descripción */
-        .content-box {
-            background-color: #fff;
+        /* Contenedor para el título y descripción */
+        .header-container {
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra del 20% */
-            padding: 30px;
+            padding: 40px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
             margin-bottom: 40px;
-            width: 90%;
+            width: 80%;
             max-width: 800px;
+            transition: transform 0.3s ease-in-out;
         }
 
-        /* Encabezado */
+        .header-container:hover {
+            transform: scale(1.05);
+        }
+
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             font-weight: bold;
-            color: #212020;
-            margin-bottom: 10px;
+            color: #e6e6e6;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        /* Descripción */
         p {
+            max-width: 600px;
             font-size: 1.1em;
-            color: #212020;
+            color: #b0b0b0;
             text-align: center;
-            margin-top: 0;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         /* Imagen de perfil */
         .face_center {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             margin-bottom: 20px;
+            border: 4px solid #00ff00;
+            box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
         }
 
         /* Contenedor principal */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
             padding: 20px;
             width: 90%;
             justify-items: center;
-            margin-top: 40px;
         }
 
         /* Bloques de imagen con efecto 16:9 */
@@ -74,17 +82,16 @@
             position: relative;
             width: 100%;
             padding-top: 56.25%; /* Proporción 16:9 */
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
         }
 
-        /* Imagen dentro del bloque */
         .image-block img {
             position: absolute;
             top: 0;
@@ -98,7 +105,7 @@
         /* Efecto al pasar el ratón */
         .image-block:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 255, 0, 0.6);
         }
 
         /* Botón para cambiar imagen */
@@ -106,7 +113,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #fff;
+            background-color: #00ff00;
             color: #333;
             border: none;
             padding: 10px 15px;
@@ -117,7 +124,7 @@
         }
 
         .image-block button:hover {
-            background-color: #ddd;
+            background-color: #00cc00;
         }
 
         /* Descripción de la imagen */
@@ -127,7 +134,7 @@
             left: 0;
             width: 100%;
             height: 30%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 15px;
             box-sizing: border-box;
@@ -139,7 +146,7 @@
 
         .image-description h3 {
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin: 0;
         }
 
@@ -161,7 +168,7 @@
         /* Estilos responsivos */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
 
             p {
@@ -174,7 +181,7 @@
             }
 
             .image-description h3 {
-                font-size: 1.1em;
+                font-size: 1.2em;
             }
 
             .image-description p {
@@ -185,7 +192,7 @@
 </head>
 <body>
 
-    <div class="content-box">
+    <div class="header-container">
         <h1>Sharingel</h1>
         <img src="sharingel_face.jpg" class="face_center">
         <p>Soy Sharingel, un constructor profesional en Minecraft. Ofrezco servicios de construcción personalizados según tus necesidades. La tarifa depende de la complejidad del proyecto, y mi disponibilidad varía, con un mínimo de 1:30 horas por construcción. ¡Echa un vistazo a algunos de mis proyectos!</p>
@@ -243,5 +250,5 @@
         }
     </script>
 
-</body> 
+</body>
 </html>
