@@ -6,93 +6,101 @@
     <title>Portafolio Sharingel</title>
     <link rel="icon" href="sharingel_face.jpg" type="image/x-icon">
     <style>
+        /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
-            background: url("background.jpg");
+            background: url("background.jpg") no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* Centra verticalmente */
+            align-items: center;
             flex-direction: column;
-            height: 200vh; /* Usa todo el alto de la ventana */
-            color: #f0f0f0; /* Texto en blanco para contraste */
-            overflow-x: hidden; /* Evita el desbordamiento horizontal */
+            height: 100vh;
+            color: #f0f0f0;
+            overflow-x: hidden;
             text-align: center;
         }
 
+        /* Encabezado */
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
             color: #fff;
             margin-bottom: 10px;
             animation: fadeIn 2s ease-in-out;
         }
 
+        /* Descripción */
         p {
             max-width: 600px;
-            font-size: 1em;
-            color: #bbb; /* Texto en gris claro */
+            font-size: 1.1em;
+            color: #f0f0f0;
             text-align: center;
             margin-bottom: 40px;
             animation: fadeIn 2s ease-in-out;
         }
 
+        /* Imagen de perfil */
         .face_center {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             margin-bottom: 20px;
         }
 
+        /* Contenedor principal */
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px; /* Aumentar el espacio entre los bloques */
-            height: 50%;
-            width: 90%; /* Ajusta el ancho de los cuadros */
-            margin: 0 auto; /* Centra los cuadros */
-            padding-bottom: 50px; /* Espacio abajo */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            width: 90%;
+            justify-items: center;
         }
 
-        /* Bloques de imagen con relación 16:9 */
+        /* Bloques de imagen con efecto 16:9 */
         .image-block {
             position: relative;
-            height: 20%;
-            width: 50%;
-            padding-top: 20%; /* 16:9 aspect ratio (9 / 16 * 100 = 56.25%) */
-            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            padding-top: 56.25%; /* Proporción 16:9 */
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
             overflow: hidden;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Añade sombra a los cuadros */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /* Imagen dentro del bloque */
         .image-block img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Mantener la proporción de la imagen */
-            transition: opacity 1s ease-in-out; /* Transición suave */
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
         }
 
+        /* Efecto al pasar el ratón */
         .image-block:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
         }
 
+        /* Botón para cambiar imagen */
         .image-block button {
             position: absolute;
-            top: 10px; /* Botón en la parte superior */
+            top: 10px;
             right: 10px;
             background-color: #fff;
+            color: #333;
             border: none;
-            padding: 10px;
+            padding: 10px 15px;
             font-size: 1em;
             border-radius: 5px;
             cursor: pointer;
@@ -100,18 +108,19 @@
         }
 
         .image-block button:hover {
-            background-color: #ccc;
+            background-color: #ddd;
         }
 
+        /* Descripción de la imagen */
         .image-description {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 25%; /* Ocupa un cuarto del bloque */
-            background-color: rgba(0, 0, 0, 0.6);
+            height: 30%;
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -121,15 +130,16 @@
 
         .image-description h3 {
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.2em;
             margin: 0;
         }
 
         .image-description p {
-            font-size: 0.8em;
+            font-size: 1em;
             text-align: left;
         }
 
+        /* Animación de desvanecimiento */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -139,10 +149,10 @@
             }
         }
 
-        /* Asegura que el contenido sea visible en pantallas más pequeñas */
+        /* Estilos responsivos */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5em;
+                font-size: 2em;
             }
 
             p {
@@ -151,76 +161,48 @@
 
             .container {
                 width: 95%;
-                gap: 15px;
+                gap: 20px;
             }
 
             .image-description h3 {
-                font-size: 1.2em; /* Título más pequeño en dispositivos móviles */
+                font-size: 1.1em;
             }
 
             .image-description p {
-                font-size: 1em; /* Descripción más grande en dispositivos móviles */
-            }
-        }
-
-        /* Ajustes para pantallas grandes (computadora) */
-        @media (min-width: 1024px) {
-            body {
-                font-size: 0.8em; /* Reducir tamaño de fuente */
-            }
-
-            h1 {
-                font-size: 2.5em; /* Título más pequeño */
-            }
-
-            p {
-                font-size: 1em; /* Texto más pequeño */
-            }
-
-            .container {
-                width: 50%; /* Reduce el ancho de la caja principal */
-                gap: 80px; /* Espacio más grande entre los cuadros */
-            }
-
-            .image-description h3 {
-                font-size: 1.3em; /* Título más pequeño */
-            }
-
-            .image-description p {
-                font-size: 0.9em; /* Descripción más pequeña */
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
 
-    <h1>Sharingel</h1><img src="sharingel_face.jpg" class="face_center">
-    <p>Soy Sharingel y soy un constructor profesional minecraft. Mis servicios son desde construcciones de todo tipo pero la paga sera dependiendo que tan elaborada sea la construccion. El horario en el que construyo es dependiendo del dia (minimo 1:30 horas)</p>
-    <p>A continuacion les dejo una variedad de construcciones que yo hice:</p>
+    <h1>Sharingel</h1>
+    <img src="sharingel_face.jpg" class="face_center">
+    <p>Soy Sharingel, un constructor profesional en Minecraft. Ofrezco servicios de construcción personalizados según tus necesidades. La tarifa depende de la complejidad del proyecto, y mi disponibilidad varía, con un mínimo de 1:30 horas por construcción. ¡Echa un vistazo a algunos de mis proyectos!</p>
 
     <div class="container">
         <div class="image-block">
-            <img src="ring_1.jpg" alt="Imagen 1">
-            <button onclick="changeImage(1)">Next</button>
+            <img src="ring_1.jpg" alt="Arena Box Fight">
+            <button onclick="changeImage(1)">Siguiente</button>
             <div class="image-description">
                 <h3>The Ring</h3>
-                <p>Este es un Arena Box Fight con gradas para que el publico vea la pelea y mucho mas!!</p>
+                <p>Arena Box Fight con gradas para que el público vea las peleas, ¡y mucho más!</p>
             </div>
         </div>
         <div class="image-block">
-            <img src="ender_1.jpg" alt="Imagen 2">
-            <button onclick="changeImage(2)">Next</button>
+            <img src="ender_1.jpg" alt="Cabin at the End">
+            <button onclick="changeImage(2)">Siguiente</button>
             <div class="image-description">
                 <h3>Cabin at the End</h3>
-                <p>Este es una cabaña con un portal del end adentro por lo que es una decoracion hermosa para un evento!!</p>
+                <p>Una cabaña con un portal del End adentro, ideal para un evento único.</p>
             </div>
         </div>
         <div class="image-block">
-            <img src="desert_1.jpg" alt="Imagen 3">
-            <button onclick="changeImage(3)">Next</button>
+            <img src="desert_1.jpg" alt="Desert Village">
+            <button onclick="changeImage(3)">Siguiente</button>
             <div class="image-description">
                 <h3>Desert Village</h3>
-                <p>Este es una aldea con estilo desierto que es super llamativa!!</p>
+                <p>Una aldea con estilo desierto, perfecta para crear un ambiente llamativo.</p>
             </div>
         </div>
     </div>
