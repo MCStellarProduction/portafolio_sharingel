@@ -23,24 +23,30 @@
             overflow-x: hidden;
         }
 
+        /* Contenedor del título y la descripción */
+        .content-box {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra del 20% */
+            padding: 30px;
+            margin-bottom: 40px;
+            width: 90%;
+            max-width: 800px;
+        }
+
         /* Encabezado */
         h1 {
             font-size: 2.5em;
             font-weight: bold;
-            color: #fff;
+            color: #333;
             margin-bottom: 10px;
-            animation: fadeIn 2s ease-in-out;
-            padding-top: 20px;
         }
 
         /* Descripción */
         p {
-            max-width: 600px;
             font-size: 1.1em;
-            color: #f0f0f0;
+            color: #333;
             text-align: center;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
             margin-top: 0;
         }
 
@@ -179,9 +185,11 @@
 </head>
 <body>
 
-    <h1>Sharingel</h1>
-    <img src="sharingel_face.jpg" class="face_center">
-    <p>Soy Sharingel, un constructor profesional en Minecraft. Ofrezco servicios de construcción personalizados según tus necesidades. La tarifa depende de la complejidad del proyecto, y mi disponibilidad varía, con un mínimo de 1:30 horas por construcción. ¡Echa un vistazo a algunos de mis proyectos!</p>
+    <div class="content-box">
+        <h1>Sharingel</h1>
+        <img src="sharingel_face.jpg" class="face_center">
+        <p>Soy Sharingel, un constructor profesional en Minecraft. Ofrezco servicios de construcción personalizados según tus necesidades. La tarifa depende de la complejidad del proyecto, y mi disponibilidad varía, con un mínimo de 1:30 horas por construcción. ¡Echa un vistazo a algunos de mis proyectos!</p>
+    </div>
 
     <div class="container">
         <div class="image-block">
@@ -235,5 +243,5 @@
         }
     </script>
 
-</body>
+</body> 
 </html>
